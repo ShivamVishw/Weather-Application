@@ -1,0 +1,171 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(165, 103, 222); 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 500px;
+    height: 80vh;
+    background-color: rgb(161, 136, 185);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(44, 69, 44);
+
+}
+
+.upper-data{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.lower-data{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* background-color: rgb(114, 118, 228); */
+    background-color: rgb(99, 99, 227);
+    padding: 0.9em;
+    display: flex;
+    flex-direction: column;
+}
+
+.upper-data img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.weather-data{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(44, 69, 44);*/
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.location{
+    color: rgb(28, 64, 131);
+    text-align: center;
+    font-size: 25px;
+}
+.temperature{
+    color: rgb(28, 64, 131);
+    font-size: 4em;
+    text-align: center;
+    font-weight: 900;
+}
+
+.more-info{
+    color: rgb(219, 231, 221);
+    font-size: 1.2em; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.more-info-container{
+    flex: 1;
+    /* background-color: rgb(99, 99, 227); */
+    background-color: rgb(114, 118, 228);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 20px;
+    margin:1.5em 1em 1em 1em;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.info-block{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.info-block-label{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-block-label img{
+    width: 2em;
+}
+.info-block-label span{
+    color: rgb(2, 67, 93);
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.info-block-value{
+    font-size: 1.2em;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(2, 67, 93);
+}
+
+.searching input{
+    border-radius: 10px;
+    background-color: blueviolet;
+    text-align: center;
+    font-style: oblique;
+    display: flex;
+}
+.searching {
+    text-align: right;
+    background-color: rgb(165, 103, 222); 
+    display: flex;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 20px;
+    
+}
+.searchButton{
+    border-radius: 10px;
+    background-color: rgb(174, 132, 214);
+    text-align: center;
+    font-style: oblique;
+    display: flex;
+    margin-left: 3px;
+}
+
+.inputSearch{
+    color: azure;
+}
+
+
+.searching ::placeholder{
+    color: azure;
+}
