@@ -1,76 +1,74 @@
-
-<div class="searching">
-  <input class="inputSearch" type="text" id="cityInput" [(ngModel)]="city" placeholder="Enter city"/>
-  <button class="searchButton" (click)="fetchWeatherData()">Get Weather</button>
-</div>
+<div class="weather-app-wrapper">
   
+  <div class="searching">
+    <input class="inputSearch" type="text" id="cityInput" [(ngModel)]="city" placeholder="Enter city name..." />
+    <button class="searchButton" (click)="fetchWeatherData()">Get Weather</button>
+  </div>
 
-<div class="container" *ngIf="weatherData" >
-  <div class="upper-data">
-    <img src="../assets/day.jpg" *ngIf="weatherData.main.temp-273.15 > 20">
-    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp-273.15 <= 20">
+  <div class="container" *ngIf="weatherData">
+    
+    <div class="upper-data">
+      <img src="../assets/day.jpg" *ngIf="weatherData.main.temp-273.15 > 20" class="weather-bg">
+      <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp-273.15 <= 20" class="weather-bg">
 
-    <div class="weather-data">
-      <div style="color: white;" class="location" *ngIf="weatherData.main.temp-273.15<=20">{{city}}</div>
-      <div style="color: white;" class="temperature" *ngIf="weatherData.main.temp-273.15<=20">{{ weatherData.main.temp-273.15 | number: '1.0-0'}}°C</div>
-      <div style="color: rgb(15, 48, 168);" class="location" *ngIf="weatherData.main.temp-273.15>20">{{city}}</div>
-      <div style="color: rgb(15, 48, 168);" class="temperature" *ngIf="weatherData.main.temp-273.15>20">{{ weatherData.main.temp-273.15 | number: '1.0-0'}}°C</div>
-  
-    </div>
-
-  </div> 
-
-  <div class="lower-data">
-    <div class="more-info">
-      
-    </div>
-    <div class="more-info-container">
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/min.png">
-          <span>Min_temp</span>
-        </div>
-        <div class="info-block-value">
-          {{weatherData.main.temp_min-273.15 | number: '1.0-0'}} °C
-        </div>
+      <div class="weather-data" 
+           [ngClass]="{'cold-text': weatherData.main.temp-273.15 <= 20, 'warm-text': weatherData.main.temp-273.15 > 20}">
+        <div class="location">{{city | titlecase}}</div>
+        <div class="temperature">{{ weatherData.main.temp-273.15 | number: '1.0-0'}}°C</div>
       </div>
+    </div> 
 
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/max.jpg">
-          <span>Max_temp</span>
+    <div class="lower-data">
+      <div class="more-info-container">
+        
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/min.png" class="icon">
+            <span>Min Temp</span>
+          </div>
+          <div class="info-block-value">
+            {{weatherData.main.temp_min-273.15 | number: '1.0-0'}} °C
+          </div>
         </div>
-        <div class="info-block-value">
-          {{weatherData.main.temp_max-273.15 | number: '1.0-0'}} °C
-        </div>
-      </div>
 
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/humidityy.jpg">
-          <span>Humidity</span>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/max.jpg" class="icon">
+            <span>Max Temp</span>
+          </div>
+          <div class="info-block-value">
+            {{weatherData.main.temp_max-273.15 | number: '1.0-0'}} °C
+          </div>
         </div>
-        <div class="info-block-value">
-          {{weatherData.main.humidity}} %
-        </div>
-      </div>
 
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/wind.jpeg">
-          <span>Speed</span>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/humidityy.jpg" class="icon">
+            <span>Humidity</span>
+          </div>
+          <div class="info-block-value">
+            {{weatherData.main.humidity}} %
+          </div>
         </div>
-        <div class="info-block-value">
-          {{ weatherData.wind.speed*3.6 | number: '1.0-0' }} Km/hr
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/wind.jpeg" class="icon">
+            <span>Wind</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData.wind.speed*3.6 | number: '1.0-0' }} Km/hr
+          </div>
         </div>
+
       </div>
     </div>
   </div>
-</div>
 
-<div *ngIf="!weatherData">
-  <p>Loading weather data...</p>
-</div>
+  <div class="loading" *ngIf="!weatherData">
+    <p>Loading weather data...</p>
+  </div>
 
+</div>
 
 <router-outlet></router-outlet>
