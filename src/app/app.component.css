@@ -1,0 +1,161 @@
+/* Overall Page Wrapper */
+.weather-app-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f0f4f8; /* Soft background to make the card pop */
+  min-height: 100vh;
+}
+
+/* --- Search Bar Styles --- */
+.searching {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.inputSearch {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: border 0.3s;
+}
+
+.inputSearch:focus {
+  border: 1px solid #0f30a8;
+}
+
+.searchButton {
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background-color: #0f30a8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.searchButton:active {
+  transform: scale(0.96);
+}
+
+.searchButton:hover {
+  background-color: #0b227a;
+}
+
+/* --- Main Card Styles --- */
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Top Half */
+.upper-data {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
+
+.weather-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the space without squishing */
+}
+
+.weather-data {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.location {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.temperature {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Dynamic Text Colors */
+.cold-text {
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Shadow for readability over images */
+}
+
+.warm-text {
+  color: #0f30a8;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* --- Bottom Half Grid --- */
+.lower-data {
+  padding: 25px;
+  background-color: white;
+}
+
+.more-info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 15px;
+}
+
+.info-block {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.info-block-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 5px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.info-block-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+/* Loading State */
+.loading {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: bold;
+}
