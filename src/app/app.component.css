@@ -159,3 +159,11 @@
   color: #64748b;
   font-weight: bold;
 }
+
+.info-block {
+  transition: transform 0.2s ease;
+}
+
+.info-block:hover {
+  transform: translateY(-4px);
+}
