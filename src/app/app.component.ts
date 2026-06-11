@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'weatherApp';
 
-  city: string = 'Bangladesh'; 
+  city: string = 'Mumbai'; 
   weatherData: any;
 
   constructor(private weatherService: WeatherService) {
